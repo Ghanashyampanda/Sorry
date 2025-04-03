@@ -36,6 +36,36 @@ function createConfetti() {
     }
 }
 
+// Particle animation
+function createParticles() {
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, 5000);
+    }
+}
+
+// Petal animation
+function createPetals() {
+    for (let i = 0; i < 20; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = Math.random() * 5 + 3 + 's';
+        document.body.appendChild(petal);
+        
+        setTimeout(() => {
+            petal.remove();
+        }, 8000);
+    }
+}
+
 // Staggered text animation
 function animateText() {
     const paragraphs = document.querySelectorAll('p');
@@ -54,24 +84,26 @@ function smoothScroll() {
 
 // Optimize animations for mobile
 let heartInterval;
-function startHearts() {
+function startAnimations() {
     if (window.innerWidth < 600) {
         // Reduce frequency on mobile
         heartInterval = setInterval(createHearts, 500);
     } else {
         heartInterval = setInterval(createHearts, 300);
     }
+    setInterval(createParticles, 2000);
+    setInterval(createPetals, 3000);
 }
 
 // Initialize animations
-startHearts();
+startAnimations();
 animateText();
 smoothScroll();
 
 // Handle window resize
 window.addEventListener('resize', () => {
     clearInterval(heartInterval);
-    startHearts();
+    startAnimations();
 });
 
 // Add event listeners for both click and touch
