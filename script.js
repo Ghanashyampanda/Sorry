@@ -1,13 +1,13 @@
 // Basic alert functionality
 function showForgivenessMessage() {
-    alert('Thank you for forgiving me! ❤️');
+    alert('ମୋତେ କ୍ଷମା କରିବା ପାଇଁ ଧନ୍ୟବାଦ!🙏🥹🙏');
     createConfetti();
 }
 
 // Enhanced heart animation
 function createHearts() {
     const heart = document.createElement('div');
-    heart.innerHTML = '❤️';
+    heart.innerHTML = '😔😓';
     heart.classList.add('heart');
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.fontSize = Math.random() * 2 + 1 + 'rem';
